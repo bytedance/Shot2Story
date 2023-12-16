@@ -115,8 +115,8 @@ Stay tuned for metric calculation interface and summary generation codes.
 | Model*            | ASR   | B    | M    | R    | C   | Checkpoint   | 
 | ---------------- | ----- | ---- | ---- | ---- | --- | --- |
 | SUM-shot w/o ASR | cross | 9.8  | 18.4 | 24.9 | 4.7 | [ckpt]() |
-| SUM-holistic     | check | 10.9 | 18.3 | 26.2 | 6.3 | [ckpt]() |
-| SUM-shot         | check | 11.7 | 19.7 | 26.8 | 8.6 | [ckpt]() |
+| SUM-holistic     | check | 10.9 | 18.3 | 26.2 | 6.3 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/sum_whole_best_epoch.pth) |
+| SUM-shot         | check | 11.7 | 19.7 | 26.8 | 8.6 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/sum_shot_best_epoch.pth) |
 
 *These models are trained in an end-to-end approach. Our provided checkpoint only contains parameter that have been updated, i.e., Q-Former (including additional linear layer).
 
@@ -151,8 +151,8 @@ Results for single-shot video captioning:
 
 | Modality* | B    | M    | R    | C    | Checkpoint |
 | -------- | ---- | ---- | ---- | ---- | ---------- |
-| V        | 10.5 | 16   | 30.1 | 38.8 | [ckpt]()   |
-| V+A      | 10.7 | 16.2 | 29.6 | 37.4 | [ckpt]()   |
+| V        | 10.5 | 16   | 30.1 | 38.8 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/single_shot_v.pth)   |
+| V+A      | 10.7 | 16.2 | 29.6 | 37.4 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/shot_av_best_epoch.pth)   |
 
 
 Results for single-shot narration captioning:
@@ -160,7 +160,7 @@ Results for single-shot narration captioning:
 | Modality* | B    | M    | R    | C     | Checkpoint |
 | -------- | ---- | ---- | ---- | ----- | ---------- |
 | A        | 4.7  | 17.1 | 30.3 | 130.9 | [ckpt]()   |
-| V+A      | 18.8 | 24.8 | 39   | 168.7 | [ckpt]()   |
+| V+A      | 18.8 | 24.8 | 39   | 168.7 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/single_shot_audio_av.pth)   |
 
 *These models are trained in an end-to-end approach. V and A means visual signals and ASR text seperately.
 
