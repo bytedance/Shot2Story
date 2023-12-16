@@ -1,0 +1,40 @@
+ # Copyright (c) 2022, salesforce.com, inc.
+ # All rights reserved.
+ # SPDX-License-Identifier: BSD-3-Clause
+ # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+datasets:
+  msrvtt_multishot_minigpt_caption: # name of the dataset builder
+    # data_dir: ${env.data_dir}/datasets
+    data_type: videos # [images|videos|features]
+
+    build_info:
+      # Be careful not to append minus sign (-) before split to avoid itemizing
+      annotations:
+        # 20230929_train_multishot_BLIP_wasr_1027prompt:
+        #   storage: hdvila/annotations/20230929_train_multishot_BLIP_wasr_1027prompt.json 
+        # 20231007_val_multishot_BLIP_wasr_1027prompt:
+        #   storage: hdvila/annotations/20231007_val_multishot_BLIP_wasr_1027prompt.json 
+        # 20230929_test_multishot_BLIP_wasr_1027prompt:
+        #   storage: hdvila/annotations/20230929_test_multishot_BLIP_wasr_1027prompt.json 
+        train:
+          storage: msrvtt/annotations/fake_test_multishot_msrvtt_for_BLIP.json 
+        val:
+          storage: msrvtt/annotations/fake_test_multishot_msrvtt_for_BLIP.json 
+        msrvtt_test_fake_multishot:
+          storage: msrvtt/annotations/fake_test_multishot_msrvtt_for_BLIP.json
+        anet_test_fake_multishot:
+          storage: activitynet-qa/fake_test_multishot_anet_for_BLIP.json
+        anet_test_fake_multishot_v3:
+          storage: activitynet-qa/fake_test_multishot_anet_for_BLIP_v3.json
+        anet_test_fake_multishot_v2:
+          storage: activitynet-qa/fake_test_multishot_anet_for_BLIP_v2.json
+        anet_test_fake_multishot_multi_trunk:
+          storage: activitynet-qa/fake_test_multishot_anet_for_BLIP_multi_trunk.json
+        anet_test_fake_multishot_multi_trunk_16:
+          storage: activitynet-qa/fake_test_multishot_anet_for_BLIP_multi_trunk_16.json
+        msrvtt_test_train_fake_multishot:
+          storage: msrvtt/annotations/fake_test_train_multishot_msrvtt_for_BLIP.json
+      videos:
+        # storage: msrvtt/videos
+        storage: activitynet-qa/videos_qa

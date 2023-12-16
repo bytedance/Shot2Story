@@ -1,0 +1,83 @@
+model:
+  fix_total: True
+  prompt_order: vt # tv random
+  arch: video_minigpt4
+  model_type: pretrain_vicuna
+  freeze_vit: True
+  freeze_qformer: False
+  max_txt_len: 160
+  end_sym: "###"
+  num_frms: 32
+  #low_resource: True
+  prompt_path: "prompts/alignment_video.txt"
+  prompt_template: '###Human: {} ###Assistant: '
+  num_query_token: 32
+  ckpt: "./pretrain/shot_av_best_epoch.pth"
+  # Vicuna
+  llama_model: "YOUR_VICUNA_7B_DIR"
+  #ckpt: '/path/to/pretrained/ckpt/'
+  visual_target: True
+  audio_target: False
+  asr_audio: False
+  av_target: False
+  whole_video: True
+  multishot: False
+  mix_multishot: False
+  system_prompt: "" # "Given a video, you will be able to see the frames once I provide it to you. Please answer my questions.
+  answer_prompt: "" # "In the audio, " "The video shows"
+  question_prompt: "The audio transcripts are: {asr}. Describe this video in detail."
+  multishot_prompt: ""
+  multishot_secondary_prompt: ""
+
+
+datasets:
+  bdmsvdc_whole_minigpt_caption:
+    fix_total: True
+    vis_processor:
+        train:
+          name: "blip_video_train"
+          n_frms: 32
+          image_size: 224
+        eval:
+          name: "blip_video_eval"
+          n_frms: 32
+          image_size: 224
+    text_processor:
+        train:
+          name: "blip_caption"
+          max_words: 600
+        eval:
+          name: "blip_caption"
+          max_words: 600
+
+run:
+  task: video_text_pretrain
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 8e-5
+  min_lr: 8e-6
+  warmup_lr: 8e-6
+  accum_grad_iters: 2
+
+  weight_decay: 0.05
+  max_epoch: 40
+  batch_size_train: 10
+  batch_size_eval: 10
+  num_workers: 10
+  warmup_steps: 30
+
+  seed: 42
+  output_dir: "output/sum_whole"
+
+  amp: True
+  resume_ckpt_path: null
+  audo_resume: True
+
+  evaluate: False
+  re_evaluate: False
+  train_splits: ["20k_train_multishot"]
+  valid_splits: ["20k_val_multishot"]
+  test_splits: ["20k_test_multishot"]
+  device: "cuda"
+  world_size: 4
+  dist_url: "env://"
+  distributed: True

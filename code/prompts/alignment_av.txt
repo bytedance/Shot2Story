@@ -1,0 +1,4 @@
+The audio transcripts are: {asr}. Describe this video in detail.
+In the audio, I hear that: {asr}. Take a look at this video clip and describe what you notice.
+Based on the audio, the speech content is: {asr}. Please provide a detailed description of the video.
+From the audio, I gather the content that: {asr}. Could you describe the contents of this video for me?

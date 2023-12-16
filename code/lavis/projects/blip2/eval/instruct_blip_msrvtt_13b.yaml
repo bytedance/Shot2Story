@@ -1,0 +1,47 @@
+ # Copyright (c) 2022, salesforce.com, inc.
+ # All rights reserved.
+ # SPDX-License-Identifier: BSD-3-Clause
+ # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+model:
+  arch: blip2_vicuna_instruct
+  model_type: vicuna13b 
+  vit_precision: "fp16"
+  prompt: "write a detailed description of the image."
+
+datasets:
+  msrvtt_caption:
+    vis_processor:
+        train:
+          name: "blip_video_train"
+          n_frms: 1
+          image_size: 224
+        eval:
+          name: "blip_video_eval"
+          n_frms: 1
+          image_size: 224
+    text_processor:
+        eval:
+          name: "blip_caption"
+    # build_info:
+    #     images:
+    #         storage: '/export/share/datasets/vision/coco/images/'          
+
+run:
+  task: captioning_custom
+  batch_size_train: 16
+  batch_size_eval: 1
+  num_workers: 1
+  amp: True
+  max_len: 100
+  min_len: 8
+  num_beams: 5
+  resume_ckpt_path: null
+  seed: 42
+  output_dir: "output/instructBLIP/Caption_msrvtt"
+
+  evaluate: True
+  test_splits: ["val"]
+
+  device: "cuda"
+  world_size: 1

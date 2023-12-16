@@ -1,0 +1,4 @@
+The audio transcripts are: {asr}. Describe the audio content of this video in detail. Keep most of the transcripts in the description. Please repeat the human speech first.
+In the audio, I hear the human speech that: {asr}. Take a look at this video clip and describe what you notice in the audio. Note that most of the human speech can be kept. You can start with the human speech content.
+Based on the audio, the speech contents are: {asr}. Please provide a detailed description of the audio in the video. Please keep most of the speech content in the description. Remember the speech content first.
+From the audio, I gather the audio transcripts that: {asr}. Could you describe the contents of the audio in this video for me? Please keep most of the audio transcripts in the description.

@@ -1,0 +1,83 @@
+model:
+  fix_total: False
+  prompt_order: vt # tv random
+  arch: video_minigpt4
+  model_type: pretrain_vicuna
+  freeze_vit: True
+  freeze_qformer: False
+  max_txt_len: 160
+  end_sym: "###"
+  num_frms: 4
+  #low_resource: True
+  prompt_path: "prompts/alignment_audio.txt"
+  prompt_template: '###Human: {} ###Assistant: '
+  num_query_token: 32
+  ckpt: "YOUR_MINIGPT4_7B_PATH"
+  # Vicuna
+  llama_model: "YOUR_VICUNA_7B_DIR"
+  visual_target: True
+  audio_target: False
+  asr_audio: True
+  av_target: False
+  whole_video: False
+  multishot: False
+  asr_target: False
+  whole_asr: False
+  system_prompt: "" # "Given a video, you will be able to see the frames once I provide it to you. Please answer my questions.
+  answer_prompt: "" # "In the audio, " "The video shows"
+  # question_prompt: "In the audio, I heat that: {asr}. Please provide a detailed description of the audio in the video." 
+  question_prompt: "In the audio, I heat that: {asr}. Please describe this video according to the audio and visual content." 
+  multishot_prompt: ""
+  multishot_secondary_prompt: ""
+
+datasets:
+  bdmsvdc_minigpt_caption:
+    vis_processor:
+        train:
+          name: "blip_video_train"
+          n_frms: 4
+          image_size: 224
+        eval:
+          name: "blip_video_eval"
+          n_frms: 4
+          image_size: 224
+    text_processor:
+        train:
+          name: "blip_caption"
+          max_words: 200
+        eval:
+          name: "blip_caption"
+          max_words: 200
+
+run:
+  task: video_text_pretrain
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 8e-5
+  min_lr: 8e-6
+  warmup_lr: 8e-6
+  accum_grad_iters: 2
+
+  weight_decay: 0.05
+  max_epoch: 40
+  batch_size_train: 8
+  batch_size_eval: 8
+  num_workers: 10
+  warmup_steps: 30
+
+  seed: 42
+  output_dir: "output/shot_cap_a"
+  # output_dir: "output/shot_cap_av"
+
+  amp: True
+  resume_ckpt_path: null
+  audo_resume: True
+
+  evaluate: False
+  re_evaluate: False
+  train_splits: ["20k_train"]
+  valid_splits: ["20k_val"]
+  test_splits: ["20k_test"]
+  device: "cuda"
+  world_size: 4
+  dist_url: "env://"
+  distributed: True
