@@ -75,13 +75,11 @@ Some hints to play with our demo:
 *   Various shot structures derive different understanding of the video. We enable automatic shot detection with TransNetv2 and pyscenedetection and also manual specification. Give it a try! 🚀
 *   Setting temperature to 0.1 for the most grounded understanding and question-answering.
 *   Setting temperature to greater value for the creative grounded understanding and question-answering.
-<p align="center">
-    <br>
-    <video width="480" height="360" controls>
+  
+<video controls>
   <source src="assets/gradio_demo_final.mov" type="video/mov">
+Your browser does not support the video tag.
 </video>
-    <br>
-<p>
 
 
 ---
