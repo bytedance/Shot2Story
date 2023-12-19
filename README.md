@@ -5,7 +5,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 
 **Stay tuned for more exciting data release and new features!**
 
-<p align="center"> <br> <img src="assets/dataset_glance.png" alt="Dataset Glance"/> <br> </p>
+<p align="center"> <br> <img src="assets/S2S_demo" alt="Dataset Glance"/> <br> </p>
 
 ## Table of Contents
 
