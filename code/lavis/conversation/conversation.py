@@ -500,7 +500,7 @@ class Chat:
         self.n_frms = self.vis_processor.n_frms
         
         self.transnet_model = TransNetV2()
-        state_dict = torch.load("/mnt/bn/kinetics-lp-maliva/playground_projects/TransNetV2/inference-pytorch/transnetv2-pytorch-weights.pth")
+        state_dict = torch.load("./pretrain/transnetv2-pytorch-weights.pth")
         self.transnet_model.load_state_dict(state_dict)
         self.transnet_model.eval().cuda()
         

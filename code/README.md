@@ -16,9 +16,10 @@ This repo mainly focus on our established baselines for single-shot captions, vi
 3. [Setting Environment](#setting-environment)
 4. [Video Summarization](#video-summarization)
 5. [Single-shot Captioning](#single-shot-captioning)
-6. [License](#license)
-7. [Citation](#citation)
-8. [Contact](#contact)
+6. [Offline Demo](#offline-demo)
+7. [License](#license)
+8. [Citation](#citation)
+9. [Contact](#contact)
 
 ---
 
@@ -169,6 +170,15 @@ Stay tuned!
 
 ## Zero-shot video question-answering
 Stay tuned!
+
+---
+
+## Offline Demo  <a name="offline-demo"></a>
+
+We provide codes and checkpoints for offline gradio demo on single GPU. The default arguments are set in `demo_video.py`. You can specifiy a different config file by option `--cfg-path`. To excuate on-the-fly shot detection, please download and transfer checkpoint for TransNetv2 to pytorch format, and place it under `./pretrain`. (You can also download it from [here](https://huggingface.co/ByteDance-new/shot2story/resolve/main/transnetv2-pytorch-weights.pth).) 
+```code
+python demo_video.py
+```
 
 ---
 
