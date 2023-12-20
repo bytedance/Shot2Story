@@ -22,6 +22,7 @@ import dataclasses
 from enum import auto, Enum
 from typing import List, Tuple, Any
 from torch.nn.utils.rnn import pad_sequence
+from decord import VideoReader
 
 from lavis.common.registry import registry
 from lavis.datasets.data_utils import prepare_sample
@@ -184,43 +185,32 @@ def read_video_frames_resized(video_fn, resize_width, resize_height):
     probe = ffmpeg.probe(video_fn)
     video_stream = next((stream for stream in probe['streams'] if stream['codec_type'] == 'video'), None)
     fps = eval(video_stream['avg_frame_rate']) if video_stream else 30
-    original_width = int(video_stream['width'])
-    original_height = int(video_stream['height'])
 
     # Read the video frames into a pipe at original size
     out, _ = (
         ffmpeg
         .input(video_fn)
+        .filter('scale', resize_width, resize_height)
         .output('pipe:', format='rawvideo', pix_fmt='rgb24')
         .run(capture_stdout=True, capture_stderr=True)
     )
 
     # Calculate the number of frames
-    frame_size = original_width * original_height * 3  # 3 for RGB
+    # frame_size = original_width * original_height * 3  # 3 for RGB
+    frame_size = resize_width * resize_height * 3  # 3 for RGB
     num_frames = len(out) // frame_size
 
     # Convert the raw video data to a NumPy array
-    video_data = np.frombuffer(out, np.uint8).reshape([num_frames, original_height, original_width, 3])
+    video_data = np.frombuffer(out, np.uint8).reshape([num_frames, resize_height, resize_width, 3])
 
     # Process frames
-    original_tensors = []
     resized_tensors = []
-    resized_tensors2 = []
     for frame in video_data:
-        # Original frame as tensor
-        original_tensor = torch.from_numpy(frame).permute(2, 0, 1)
-        original_tensors.append(original_tensor)
+        # Resize frame as tensor
+        resized_frame = torch.from_numpy(frame).permute(2, 0, 1)
+        resized_tensors.append(resized_frame)
 
-        # Resize frame and convert to tensor
-        resized_frame = np.array(Image.fromarray(frame).resize((resize_width, resize_height)))
-        resized_tensor = torch.from_numpy(resized_frame).permute(2, 0, 1)
-        resized_tensors.append(resized_tensor)
-        
-        resized_frame2 = np.array(Image.fromarray(frame).resize((224, 224)))
-        resized_tensor2 = torch.from_numpy(resized_frame2).permute(2, 0, 1)
-        resized_tensors2.append(resized_tensor2)
-
-    return resized_tensors2, resized_tensors, fps
+    return resized_tensors, fps
 
 def predictions_to_scenes(predictions: np.ndarray, threshold: float = 0.5):
     predictions = (predictions > threshold).astype(np.uint8)
@@ -328,21 +318,23 @@ def evaluate_shot_detection(total_frames, shot_list, fps):
         return True
     else:
         return False
-    
+
 def get_split(video_fn, transform, dataset, transnet_model, asr_model, sampling='headtail', input_splits=None):
     # Usage example
     # video_fn = '/mnt/bn/kinetics-lp-maliva-v6/data/hdvila/tcs/collation_final_videos/dR9jfG9Zr5A.2.mp4'
     desired_width = 48
     desired_height = 27
-    frames, frames_for_shots, fps = read_video_frames_resized(video_fn, desired_width, desired_height)
+    frames_for_shots, fps = read_video_frames_resized(video_fn, desired_width, desired_height)
     # frames = torch.stack(frames).permute(0,2,3,1)
     frames_for_shots = torch.stack(frames_for_shots).unsqueeze(dim=0).permute(0,1,3,4,2)
-    whole_vlen = frames_for_shots.shape[1]
+    
+    vr = VideoReader(video_fn, height=224, width=224)
+    whole_vlen = len(vr)
     
     model = transnet_model
 
     if input_splits is not None:
-        require_shot_detection, new_splits = evaluate_input_shots(input_splits, fps, len(frames))
+        require_shot_detection, new_splits = evaluate_input_shots(input_splits, fps, whole_vlen)
     else:
         require_shot_detection = True
 
@@ -372,7 +364,7 @@ def get_split(video_fn, transform, dataset, transnet_model, asr_model, sampling=
             new_splits = [x for x in new_splits]
             # print(new_splits)
         
-        resplit_video = evaluate_shot_detection(len(frames), new_splits, fps)
+        resplit_video = evaluate_shot_detection(whole_vlen, new_splits, fps)
         if resplit_video:
             resplit_video_splits = find_scenes(video_fn, 18)
             print('New scene detection results', len(new_splits), len(resplit_video_splits))
@@ -428,10 +420,10 @@ def get_split(video_fn, transform, dataset, transnet_model, asr_model, sampling=
     samples = dataset['bdmsvdc_multishot_minigpt_caption']['20k_val'].get_sample_nfrms(len(new_splits), "")
     shot_splits = [new_splits[i] for i in samples["shot_ids"]]
     if len(samples["shot_split"]) != len(new_splits):
-        frames = [frames[fi] for shot in shot_splits for fi in range(shot[0], shot[1])]
+        frames = [fi for shot in shot_splits for fi in range(shot[0], shot[1])]
 
     shot_frames = []
-    for shot_id, split, n_frms, cur_shot_frms in zip(samples["shot_ids"], shot_splits, samples["shot_split"], frames):
+    for shot_id, split, n_frms in zip(samples["shot_ids"], shot_splits, samples["shot_split"]):
         vlen = split[1]-split[0]+1
         #print('video len', vlen)
         start, end = 0, vlen
@@ -456,13 +448,14 @@ def get_split(video_fn, transform, dataset, transnet_model, asr_model, sampling=
         #print(frms.shape)
         indices = [int(i) if int(i) < vlen else vlen-1 for i in indices]
         indices = sorted(indices)[:n_frms]
+        indices = [i + split[0] for i in indices]
         try:
-            # frms = vr.get_batch(indices)
-            frms = torch.stack([frames[split[0]+i] for i in indices])
+            frms = vr.get_batch(indices)
+            # frms = torch.stack([frames[split[0]+i] for i in indices])
             if isinstance(frms, torch.Tensor):
                 frms = frms.permute(1,0,2,3).float() 
             elif isinstance(frms, NDArray):
-                frms = torch.from_numpy(frms.asnumpy()).permute(1,0,2,3).float() 
+                frms = torch.from_numpy(frms.asnumpy()).permute(3,0,1,2).float()
         except Exception as e:
             # print(indices, len(vr), n_frms)
             # print(video_path)
@@ -500,7 +493,7 @@ class Chat:
         self.n_frms = self.vis_processor.n_frms
         
         self.transnet_model = TransNetV2()
-        state_dict = torch.load("./pretrain/transnetv2-pytorch-weights.pth")
+        state_dict = torch.load("/mnt/bn/kinetics-lp-maliva/playground_projects/TransNetV2/inference-pytorch/transnetv2-pytorch-weights.pth")
         self.transnet_model.load_state_dict(state_dict)
         self.transnet_model.eval().cuda()
         
