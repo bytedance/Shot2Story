@@ -1,19 +1,53 @@
 # Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
+<a href='https://mingfei.info/shot2story/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+<a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a>
+<a href='https://arxiv.org/abs/2312.10300'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
+<a href='https://github.com/bytedance/Shot2Story/blob/master/DATA.md'><img src='https://img.shields.io/badge/Github-Data-green'></a>
+<a href='https://github.com/bytedance/Shot2Story/tree/master/code'><img src='https://img.shields.io/badge/Github-Code-green'></a>
 
-We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots. Please see [DATA.md](./DATA.md) for more details. 
+We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots.
 
 **Stay tuned for more exciting data release and new features!**
 
-<p align="center"> <br> <img src="assets/S2S_demo.png" alt="Dataset Glance"/> <br> </p>
+---
+
+## What's new 👀 <a name="news"></a>
+
+<!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
+🌟 Update (16/12/2023): [Paper](https://arxiv.org/pdf/2312.10300) and [Demo](https://huggingface.co/spaces/mhan/Shot2Story) for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! **Chat-SUM-shot** is on the way! Stay tuned!🎥📝🚀
+
+🌟 Update (12/12/2023): [Code](https://github.com/bytedance/Shot2Story/tree/master/code) for video summarization and video captioning as part of the Shot2Story project. Dive into these new features and share your experiences with us! 🎥📝🚀
+
+🌟 Update (30/11/2023): [Data](https://github.com/bytedance/Shot2Story/blob/master/DATA.md) of Shot2Story-20K. Check them out and stay tuned for more exciting updates! 💫🚀
+
+---
+
+## Demo <a name="demo"></a>
+
+We build a demo for SUM-shot model hosted in [Space](https://huggingface.co/spaces/mhan/Shot2Story). Please have a look and explore what it is capable of. Issues are welcomed! **Chat-SUM-shot model is on the way!**
+
+Some hints to play with our demo: 
+
+*   🎉 Start with our provided **demo videos**, some of which are sampled from ActivityNet, not included in our training data.
+*   🚀 Please upload videos **less than 20MB**. Enjoy!
+*   😄 For a more comprehensive understanding, try specifying reasonable starting and ending timestamps for the shots. Enjoy!
+*   😄 Setting temperature to 0.1 for the most grounded understanding and question-answering.
+*   😄 Setting temperature to greater value for the creative grounded understanding and question-answering.
+
+
+https://github.com/bytedance/Shot2Story/assets/18671115/cb53dc72-3d1f-48a7-ba07-a41573311ac9
+
+
+---
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [🌟 What's new 👀](#news)
-3. [Dataset Glance](#dataset-glance)
-4. [Baselines and Tasks](#baselines)
-5. [Demo](#demo)
+1. [🌟 What's new 👀](#news)
+2. [Demo](#demo)
+3. [Introduction](#introduction)
+4. [Dataset Glance](#dataset-glance)
+5. [Baselines and Tasks](#baselines)
 6. [License](#license)
 7. [Citation](#citation)
 8. [Contact](#contact)
@@ -25,16 +59,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 <!-- This section provides a brief overview of the dataset, its purpose, and its potential applications. It also includes a brief history of the dataset's creation and any changes or updates that have been made over time. -->
 A short clip of video may contain progression of multiple events and an interesting story line. A human needs to capture both the event in every shot and associate them together to understand the story behind it. In this work, we present a new multi-shot video understanding benchmark Shot2Story with detailed shot-level captions and comprehensive video summaries. To facilitate better semantic understanding of videos, we provide captions for both visual signals and human narrations. We design several distinct tasks including single-shot video and narration captioning, multi-shot video summarization, and video retrieval with shot descriptions. Preliminary experiments show some challenges to generate a long and comprehensive video summary.
 
----
-
-## What's new 👀 <a name="news"></a>
-
-<!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
-🌟 Update (16/12/2023): We are excited to release our demo for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! Chat-SUM-shot is on the way! Stay tuned!🎥📝🚀
-
-🌟 Update (12/12/2023): We are excited to release our code for video summarization and video captioning as part of the Shot2Story project. Dive into these new features and share your experiences with us! 🎥📝🚀
-
-🌟 Update (30/11/2023): We are thrilled to announce the release of Shot2Story-20K. Check them out and let us know your thoughts. Stay tuned for more exciting updates! 💫🚀
+<p align="center"> <br> <img src="assets/S2S_demo.png" alt="Dataset Glance"/> <br> </p>
 
 ---
 
@@ -65,22 +90,6 @@ To benchmark the advances of multi-modal video understanding, we designed severa
     <br>
 <p>
 
----
-
-## Demo <a name="demo"></a>
-
-We build a demo for SUM-shot model hosted in [Space](https://huggingface.co/spaces/mhan/Shot2Story). Please have a look and explore what it is capable of. Issues are welcomed! **Chat-SUM-shot model is on the way!**
-
-Some hints to play with our demo: 
-*   Various shot structures derive different understanding of the video. We enable automatic shot detection with TransNetv2 and pyscenedetection and also manual specification. Give it a try! 🚀
-*   Setting temperature to 0.1 for the most grounded understanding and question-answering.
-*   Setting temperature to greater value for the creative grounded understanding and question-answering.
-  
-<video controls>
-  <source src="assets/gradio_demo_final.mov" type="video/mov">
-Your browser does not support the video tag.
-</video>
-
 
 ---
 
@@ -91,11 +100,19 @@ Our code is licensed under a [Apache 2.0 License](https://www.apache.org/license
 Our text annotations are released under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/). They are available strictly for non-commercial research. More guidelines of dataset can be found in [here](./DATA.md#license).
 
 
-<!-- ---
+---
 
 ## Citation <a name="citation"></a>
 
-This section provides a suggested citation for users who use the dataset in their work. It includes the names of the dataset's creators, the year of creation, and any other relevant details. It may also include a BibTeX entry for users who are writing academic papers. -->
+If you find this repo useful for your research, please consider citing the paper
+```
+@article{han2023shot2story20k,
+      title={Shot2Story20K: A New Benchmark for Comprehensive Understanding of Multi-shot Videos}, 
+      author={Mingfei Han and Linjie Yang and Xiaojun Chang and Heng Wang},
+      journal={arXiv preprint arXiv:2311.17043},
+      year={2023}
+}
+```
 
 <!-- ## Acknowledgements <a name="acknowledgements"></a> -->
 
