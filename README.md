@@ -17,7 +17,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 <!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
 🌟 Update (16/12/2023): [Paper](https://arxiv.org/pdf/2312.10300) and [Demo](https://huggingface.co/spaces/mhan/Shot2Story) for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! **Chat-SUM-shot** is on the way! Stay tuned!🎥📝🚀
 
-🌟 Update (12/12/2023): [Code](https://github.com/bytedance/Shot2Story/tree/master/code) for video summarization and video captioning as part of the Shot2Story project. Dive into these new features and share your experiences with us! 🎥📝🚀
+🌟 Update (12/12/2023): [Code](https://github.com/bytedance/Shot2Story/tree/master/code) for video summarization and shot captioning, in the sub-directory `code` of this repo. Dive into these new features and share your experiences with us! 🎥📝🚀
 
 🌟 Update (30/11/2023): [Data](https://github.com/bytedance/Shot2Story/blob/master/DATA.md) of Shot2Story-20K. Check them out and stay tuned for more exciting updates! 💫🚀
 
@@ -81,8 +81,9 @@ For more comprehensive details, please refer to the plots below.
 
 ## Baselines and Tasks <a name="baselines"></a>
 
-To benchmark the advances of multi-modal video understanding, we designed several distinctive tasks using our dataset, including single-shot captioning, multi-shot summarization, and video retrieval with shot description. We design and implemented several baseline models using a frozen vision encoder and an LLM, by prompting the LLM with frame tokens and ASR (Automatic Speech Recognition) text. Please refer to 
-[./code/README.md](./code/README.md) for running the project.
+To benchmark the advances of multi-modal video understanding, we designed several distinctive tasks using our dataset, including single-shot captioning, multi-shot summarization, and video retrieval with shot description. We design and implemented several baseline models using a frozen vision encoder and an LLM, by prompting the LLM with frame tokens and ASR (Automatic Speech Recognition) text. 
+
+[Code](./code/README.md) here for running the project.
 
 <p align="center">
     <br>
