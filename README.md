@@ -1,9 +1,9 @@
 # Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
 <a href='https://mingfei.info/shot2story/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+<a href='https://github.com/bytedance/Shot2Story/blob/master/DATA.md'><img src='https://img.shields.io/badge/Github-Data-red'></a>
 <a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a>
 <a href='https://arxiv.org/abs/2312.10300'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
-<a href='https://github.com/bytedance/Shot2Story/blob/master/DATA.md'><img src='https://img.shields.io/badge/Github-Data-green'></a>
 <a href='https://github.com/bytedance/Shot2Story/tree/master/code'><img src='https://img.shields.io/badge/Github-Code-green'></a>
 
 We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots.
