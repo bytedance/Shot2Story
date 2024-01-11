@@ -35,7 +35,10 @@ Some hints to play with our demo:
 *   😄 Setting temperature to 0.1 for the most grounded understanding and question-answering.
 *   😄 Setting temperature to greater value for the creative grounded understanding and question-answering.
 
+Multi-round conversation analyzing a humorous video:
+https://github.com/bytedance/Shot2Story/assets/18671115/f32493b8-97c9-4796-bd43-9685f6b706f9
 
+Minutes-long video analyzing:
 https://github.com/bytedance/Shot2Story/assets/18671115/cb53dc72-3d1f-48a7-ba07-a41573311ac9
 
 
