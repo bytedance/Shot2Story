@@ -82,6 +82,8 @@ if __name__ == '__main__':
     data = pd.merge(data, meta_data, on='youtube_id')
     vids_file = './data/existing_videos_split.csv'
 
+    os.makedirs('./data/videos_extracted', exist_ok=True)
+    
     try:
         exitsting_vids = [l.strip() for l in open(vids_file, 'r').readlines()]
     except:
@@ -90,7 +92,7 @@ if __name__ == '__main__':
     inputs = []
     for index, row in data.iterrows():
         if row['clip_id']+'.mp4' in vids_file: continue
-        inputs.append(row, split_info[row['clip_id']+'.mp4'])
+        inputs.append([row, split_info[row['clip_id']+'.mp4']])
     
     pool = mp.Pool(args.processes)
     r = pool.map(split_video, inputs)

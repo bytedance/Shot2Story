@@ -46,7 +46,7 @@ We do not supply raw videos. Instead, we provide:
 
 1. **Access Information:** YouTube video ID, chapter ID, and start-end timestamps from HD-VILA-100M are in `./data/annotations/20k_meta.csv`.
 2. **Download Scripts:** Use our Python scripts in `./data/scripts/download_videos.py` to download videos. Ensure you have necessary permissions.
-3. **Video Preparation:** Use our code in `./data/scripts/process_videos.py` to prepare video clips and single-shot videos.
+3. **Video Preparation:** Use our code in `./data/scripts/process_videos.py` to prepare video clips and single-shot videos. As a prerequisite, please run `data/scripts/get_existing_data.py` to have all the downloaded raw videos for processing.
 
 
 ---

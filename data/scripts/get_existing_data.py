@@ -20,12 +20,12 @@ import pandas as pd
 all_files_dump = []
 
 all_files = glob.glob('./data/videos/*.mp4')
-all_files_dump.extend(['/'.join(f.split('/')[-1]) for f in all_files])
+all_files_dump.extend([f.split('/')[-1] for f in all_files])
 all_files = glob.glob('./data/videos/*.mkv')
-all_files_dump.extend(['/'.join(f.split('/')[-1]) for f in all_files])
+all_files_dump.extend([f.split('/')[-1] for f in all_files])
 
 all_files_dump = [{'video_id':file.split('/')[-1][:-4], 'video_name':file.split('/')[-1]} for file in all_files_dump]
-all_vids_dump = set([l['video_id'] for l in all_files_dump])
+all_vids_dump = set([l['video_name'] for l in all_files_dump])
 with open('./data/relevant_videos_exists.txt','w') as f:
     f.writelines('\n'.join(all_vids_dump))
 # pd.DataFrame(all_files_dump).to_csv('/mnt/bn/kinetics-lp-maliva-v6/data/hdvila/data/relevant_videos_exists_w_pagedirs.csv',index=False)
