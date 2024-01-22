@@ -41,7 +41,7 @@ https://github.com/bytedance/Shot2Story/assets/18671115/f32493b8-97c9-4796-bd43-
 
 Minutes-long video analyzing:
 
-https://github.com/bytedance/Shot2Story/assets/18671115/cb53dc72-3d1f-48a7-ba07-a41573311ac9
+https://github.com/bytedance/Shot2Story/assets/18671115/3f86cf2b-ff59-47e6-8d7b-c1273c8ea5bc
 
 
 ---
