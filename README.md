@@ -39,9 +39,9 @@ Multi-round conversation analyzing a humorous video:
 
 https://github.com/bytedance/Shot2Story/assets/18671115/3f86cf2b-ff59-47e6-8d7b-c1273c8ea5bc
 
-Minutes-long video analyzing:
+Multiple-step minutes-long video analysis:
 
-https://github.com/bytedance/Shot2Story/assets/18671115/cb53dc72-3d1f-48a7-ba07-a41573311ac9
+https://github.com/bytedance/Shot2Story/assets/18671115/42b5c81d-2a49-4668-a2fd-08fe26aeb9fd
 
 
 ---
