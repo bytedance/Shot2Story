@@ -30,20 +30,11 @@ from lavis.datasets.datasets.dataloader_utils import (
     MultiIterLoader,
     PrefetchLoader,
 )
-from lavis.datasets.datasets.hdfs_distributed_sampler import HDFSDistributedSampler
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, DistributedSampler
 from torch.utils.data.dataset import ChainDataset, ConcatDataset
 from torch.utils.data import get_worker_info
-from dataloader import KVReader
-def worker_init_fn(_):
-    worker_info = get_worker_info()
-    dataset = worker_info.dataset
-    if isinstance(dataset, ConcatDataset):
-        for sub_dataset in dataset.datasets:
-            sub_dataset.reader = KVReader(sub_dataset.data_root, sub_dataset.num_readers)
-    else:
-        dataset.reader = KVReader(dataset.data_root, dataset.num_readers)
+
 @registry.register_runner("runner_base")
 class RunnerBase:
     """
@@ -552,27 +543,6 @@ class RunnerBase:
                         num_workers=num_workers,
                         pin_memory=True,
                     )
-                )
-            elif getattr(dataset, 'data_type',None) == 'hdfs':
-                sampler = HDFSDistributedSampler(
-                    dataset,
-                    batch_size=bsz,
-                    shuffle=is_train,
-                    drop_last_batch=False,
-                    drop_last_sample=True,
-                )
-                loader = DataLoader(
-                    dataset,
-                    batch_size=None,
-                    shuffle=False,
-                    sampler=sampler,
-
-                    num_workers=num_workers,
-                    pin_memory=True,
-                    worker_init_fn=worker_init_fn,
-                    prefetch_factor=2,
-                    multiprocessing_context="spawn",
-                    persistent_workers=True,
                 )
 
             else:

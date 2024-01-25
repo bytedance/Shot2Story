@@ -15,7 +15,6 @@ import torch.distributed as dist
 from lavis.common.dist_utils import is_dist_avail_and_initialized, is_main_process
 from lavis.common.registry import registry
 from lavis.datasets.data_utils import extract_archive
-from lavis.datasets.hdfs_utils import hexists
 from lavis.processors.base_processor import BaseProcessor
 from omegaconf import OmegaConf
 from torchvision.datasets.utils import download_url
@@ -220,9 +219,6 @@ class BaseDatasetBuilder:
                 # vis_path = os.path.join(utils.get_cache_path(), vis_path)
                 vis_path = utils.get_cache_path(vis_path)
 
-            if not hexists(vis_path):
-                warnings.warn("storage path {} does not exist.".format(vis_path))
-
             audio_target = self.config.get('audio_target', False)
             fix_total = self.config.get('fix_total', False)
             flexible_sampling = self.config.get('flexible_sampling', False)
@@ -291,9 +287,6 @@ class BaseDatasetBuilder:
             if not vis_path.startswith('hdfs') and not os.path.isabs(vis_path):
                 # vis_path = os.path.join(utils.get_cache_path(), vis_path)
                 vis_path = utils.get_cache_path(vis_path)
-
-            if not hexists(vis_path):
-                warnings.warn("storage path {} does not exist.".format(vis_path))
 
             # create datasets
             dataset_cls = self.train_dataset_cls if is_train else self.eval_dataset_cls
