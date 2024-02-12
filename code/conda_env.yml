@@ -121,7 +121,6 @@ dependencies:
       - botocore==1.29.118
       - braceexpand==0.1.7
       - brotli==1.0.9
-      - byted-dataloader==0.3.6
       - cachetools==4.2.4
       - catalogue==2.0.8
       - cchardet==2.1.7
