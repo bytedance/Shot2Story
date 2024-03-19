@@ -3,6 +3,7 @@ We are excited to release a new video-text benchmark for multi-shot video unders
 
 🌟 **_More Annotations are on the Way!_** 🌟
 
+**_For video data downloading, please have a look at [this issue](https://github.com/bytedance/Shot2Story/issues/5). _**
 
 ## Annotation Format <a name="annotation-format"></a>
 
