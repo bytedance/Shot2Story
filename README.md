@@ -13,7 +13,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 ---
 
 ## What's new 👀 <a name="news"></a>
-
+🌟 Update (23/04/2024): Please check the issue [here](https://github.com/bytedance/Shot2Story/issues/5) for 20k-version video download assistance. Thanks for the support from the community.
 <!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
 🌟 Update (16/12/2023): [Paper](https://arxiv.org/pdf/2312.10300) and [Demo](https://huggingface.co/spaces/mhan/Shot2Story) for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! **Chat-SUM-shot** is on the way! Stay tuned!🎥📝🚀
 
