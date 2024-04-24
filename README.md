@@ -32,7 +32,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 
 ## Demo <a name="demo"></a>
 
-We build a demo for SUM-shot model hosted in [Space](https://huggingface.co/spaces/mhan/Shot2Story). Please have a look and explore what it is capable of. Issues are welcomed! **Chat-SUM-shot model is on the way!**
+We build a [ChatBot](https://huggingface.co/spaces/mhan/Shot2Story) demo and a [SUMBot](https://huggingface.co/spaces/mhan/Shot2Story-SUM) demo for SUM-shot model. Please have a look and explore what it is capable of. Issues are welcomed!
 
 Some hints to play with our demo: 
 
