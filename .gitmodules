@@ -1,0 +1,3 @@
+[submodule "data/annotations"]
+	path = data/annotations
+	url = https://huggingface.co/datasets/mhan/Shot2Story-134K

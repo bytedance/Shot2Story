@@ -2,19 +2,26 @@
 
 <a href='https://mingfei.info/shot2story/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 <a href='https://github.com/bytedance/Shot2Story/blob/master/DATA.md'><img src='https://img.shields.io/badge/Github-Data-red'></a>
-<a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a>
+<a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20HF Demo-ChatBot-blue'></a>
+<a href='https://af4cf4e4ce320a8d6c.gradio.live'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20HF Demo-SumBot-blue'></a>
 <a href='https://arxiv.org/abs/2312.10300'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 <a href='https://github.com/bytedance/Shot2Story/tree/master/code'><img src='https://img.shields.io/badge/Github-Code-green'></a>
 
-We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots.
+We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our updated **134k** version of dataset includes detailed long summaries for **134k videos and shot captions for 188k video shots**.
 
 **Stay tuned for more exciting data release and new features!**
 
 ---
 
 ## What's new 👀 <a name="news"></a>
-
 <!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
+🌟 Update (24/04/2024): We release a new 134K version. 
+- It has detailed video text summaries by (43K) human annotation and (90K) GPTV generation, covering over 548k video shots. 
+- Val/Test split in different tasks are remained same to 20K version. [Online ChatBot ](https://huggingface.co/spaces/mhan/Shot2Story) has been updated. 🎥📝🚀
+- Video textual summary generation demo ([SumBot](https://af4cf4e4ce320a8d6c.gradio.live)) is also online. Have a try to generate detailed description for your video! 🎥📝
+
+🌟 Update (23/04/2024): Please check the issue [here](https://github.com/bytedance/Shot2Story/issues/5) for 20k-version video download assistance. Thanks for the support from the community.
+
 🌟 Update (16/12/2023): [Paper](https://arxiv.org/pdf/2312.10300) and [Demo](https://huggingface.co/spaces/mhan/Shot2Story) for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! **Chat-SUM-shot** is on the way! Stay tuned!🎥📝🚀
 
 🌟 Update (12/12/2023): [Code](https://github.com/bytedance/Shot2Story/tree/master/code) for video summarization and shot captioning, in the sub-directory `code` of this repo. Dive into these new features and share your experiences with us! 🎥📝🚀
