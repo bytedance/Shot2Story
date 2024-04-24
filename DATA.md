@@ -1,5 +1,5 @@
 
-We are excited to release a new video-text benchmark for multi-shot video understanding. This release contains a 134k version of our dataset. It includes detailed long summaries (human annotated + GPTV generated) for 134k videos and shot captions (human annotated) for 188k video shots.
+We are excited to release a new video-text benchmark for multi-shot video understanding. This release contains a 20k version of our dataset. It includes detailed long summaries for 20k videos and shot captions for 80k video shots.
 
 🌟 **_More Annotations are on the Way!_** 🌟
 
