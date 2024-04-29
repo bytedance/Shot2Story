@@ -14,6 +14,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 ---
 
 ## What's new 👀 <a name="news"></a>
+🌟 Update (29/04/2024): Please check the issue [here](https://github.com/bytedance/Shot2Story/issues/5) for 134k-version video download assistance. Thanks for the support from the community.
 <!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
 🌟 Update (24/04/2024): We release a new 134K version. 
 - It has detailed video text summaries by (43K) human annotation and (90K) GPTV generation, covering over 548k video shots. 
