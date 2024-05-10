@@ -27,7 +27,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 
 🌟 Update (12/12/2023): [Code](https://github.com/bytedance/Shot2Story/tree/master/code) for video summarization and shot captioning, in the sub-directory `code` of this repo. Dive into these new features and share your experiences with us! 🎥📝🚀
 
-🌟 Update (30/11/2023): [Data](https://github.com/bytedance/Shot2Story/blob/master/DATA.md) of Shot2Story-20K. Check them out and stay tuned for more exciting updates! 💫🚀
+🌟 Update (30/11/2023): [Data](https://github.com/bytedance/Shot2Story/blob/master/DATA.md) of [Shot2Story-20K](https://huggingface.co/datasets/mhan/Shot2Story-20K). Check them out and stay tuned for more exciting updates! 💫🚀
 
 ---
 
