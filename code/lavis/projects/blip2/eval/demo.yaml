@@ -7,12 +7,12 @@ model:
   freeze_qformer: False
   max_txt_len: 160
   end_sym: "###"
-  num_frms: 32
+  num_frms: 4 # should be synced with datasets.bdmsvdc_multishot_minigpt_caption.vis_processor.train.n_frms and datasets.bdmsvdc_multishot_minigpt_caption.vis_processor.val.n_frms
   #low_resource: True
   prompt_path: "prompts/alignment_av.txt"
   prompt_template: '###Human: {} ###Assistant: '
   num_query_token: 32
-  ckpt: "./pretrain/shot_av_best_epoch.pth"
+  ckpt: "CHECKPOINT_DOWNLOADED_FROM_HUGGINGFACE"
   # Vicuna
   llama_model: "YOUR_VICUNA_7B_DIR"
   visual_target: True
