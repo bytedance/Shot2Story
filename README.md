@@ -14,6 +14,8 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 ---
 
 ## What's new 👀 <a name="news"></a>
+🌟 Update (010/06/2024): Please check the release question-answering benchmark [here](https://huggingface.co/datasets/mhan/shot2story/viewer/question-answering). It is designed to benchmark models for multi-shot understanding, w.r.t. temporal-related, holistic-understanding and audio-related aspects.
+
 🌟 Update (05/06/2024): Please check the cached multi-shot videos [here](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ). It takes around 160GB of disk space and needs to extract video shots on your own.
 
 🌟 Update (29/04/2024): Please check the issue [here](https://github.com/bytedance/Shot2Story/issues/5) for 134k-version video download assistance. Thanks for the support from the community.
