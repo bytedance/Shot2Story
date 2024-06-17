@@ -78,7 +78,7 @@ run:
   # # test_splits: ["anet_test_fake_multishot_multi_trunk"]
   # # test_splits: ["anet_test_fake_multishot_v2"]
   # test_splits: ["anet_test_fake_multishot_v3"]
-  train_splits: ["20k_train_multishot"]
+  train_splits: ["43k_human_train"]
   valid_splits: ["20k_val_multishot"]
   test_splits: ["20k_test_multishot"]
   device: "cuda"
