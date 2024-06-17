@@ -24,7 +24,7 @@ model:
   mix_multishot: False
   system_prompt: "" # "Given a video, you will be able to see the frames once I provide it to you. Please answer my questions.
   answer_prompt: "" # "In the audio, " "The video shows"
-  question_prompt: "The audio transcripts are: {asr}. "
+  question_prompt: "The audio transcripts are: {asr}. Please describe the video in detail."
   multishot_prompt: "This is a video with {num_shot} shots. "
   multishot_secondary_prompt: "The {shot_idx_text} shot is "
 
