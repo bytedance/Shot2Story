@@ -1,9 +1,11 @@
 # Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
 <a href='https://mingfei.info/shot2story/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
-<a href='https://github.com/bytedance/Shot2Story/blob/master/DATA.md'><img src='https://img.shields.io/badge/Github-Data-red'></a>
-<a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20HF Demo-ChatBot-blue'></a>
-<a href='https://af4cf4e4ce320a8d6c.gradio.live'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20HF Demo-SumBot-blue'></a>
+<a href='https://huggingface.co/mhan/shot2story-videos'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20-Videos-red'></a>
+<a href='https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ'><img src='https://img.shields.io/badge/Onedrive-Videos-red'></a>
+<a href='https://huggingface.co/datasets/mhan/Shot2Story-134K'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20-Annotations-red'></a>
+<a href='https://huggingface.co/spaces/mhan/Shot2Story'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-ChatBot-blue'></a>
+<a href='https://af4cf4e4ce320a8d6c.gradio.live'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-SumBot-blue'></a>
 <a href='https://arxiv.org/abs/2312.10300'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 <a href='https://github.com/bytedance/Shot2Story/tree/master/code'><img src='https://img.shields.io/badge/Github-Code-green'></a>
 
@@ -16,7 +18,7 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 ## What's new 👀 <a name="news"></a>
 🌟 Update (10/06/2024): Please check the release question-answering benchmark [here](https://huggingface.co/datasets/mhan/shot2story/viewer/question-answering). It is designed to benchmark models for multi-shot understanding, w.r.t. temporal-related, holistic-understanding and audio-related aspects.
 
-🌟 Update (05/06/2024): Please check the cached multi-shot videos [here](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ). It takes around 160GB of disk space and needs to extract video shots on your own.
+🌟 Update (05/06/2024): Please check the cached multi-shot videos on [OneDrive](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ) or [HF](https://huggingface.co/mhan/shot2story-videos). It takes around 160GB of disk space and needs to extract video shots on your own.
 
 🌟 Update (29/04/2024): Please check the issue [here](https://github.com/bytedance/Shot2Story/issues/5) for 134k-version video download assistance. Thanks for the support from the community.
 <!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
