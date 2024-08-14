@@ -56,7 +56,7 @@ data/
 ```
 Please use the videos and annotations following their original usage instructions and license.
 
-### Step 1: Download videos
+#### Step 1: Download videos
 
 Please download our cached videos from [OneDrive](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ) or [HF](https://huggingface.co/mhan/shot2story-videos). 
 
@@ -70,11 +70,11 @@ cat release_134k_videos.tar.gz.* > release_134k_videos.tar.gz
 tar xf release_134k_videos.tar.gz
 ```
 
-### Step 2: Prepare annotations
+#### Step 2: Prepare annotations
 
 All of our annotations are hosted at [HF](https://huggingface.co/datasets/mhan/shot2story). Please download files according to the tasks you are interested in. For Shot2Story-QA evaluation, please download `val_qa.json` and `test_qa.json`. For multi-shot video summarization, please download `43k_human_train.json` for training using manual annotations, `90k_gptv_train.json` for training using GPTV generated annotations, or using a combination of both annotations `134k_full_train.json`. For single-shot captioning, please download JSON files containing `_human_shot_`.
 
-### Step 3: Final check
+#### Step 3: Final check
 
 Please ensure the files are organized in the above file structure.
 
