@@ -1,11 +1,10 @@
 # Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
 
-We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots. Please see [DATA.md](https://huggingface.co/datasets/ByteDance-new/Shot2Story-data) for more details. 
+We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots. Please see [DATA.md](https://huggingface.co/datasets/mhan/shot2story) for more details. 
 
-This repo mainly focus on our established baselines for single-shot captions, video summarization, video-shot retrivals and zero-shot video question-answering.
+This repo mainly focus on our established baselines for single-shot captions, video summarization, multi-shot question-answering and zero-shot video question-answering.
 
-**Stay tuned for more exciting data release and new features!**
 
 <p align="center"> <br> <img src="assets/code_demo.png" alt="Dataset Glance"/> <br> </p>
 
@@ -30,25 +29,13 @@ A short clip of video may contain progression of multiple events and an interest
 
 ---
 
-## What's new 👀 <a name="news"></a>
-
-<!-- This section includes any recent updates or changes to the dataset. It may also include information about related events or projects, such as challenges or competitions using the dataset. This section is frequently updated, so please check back often for the latest news. -->
-🌟 Update (16/12/2023): We are excited to release our [demo](https://huggingface.co/spaces/mhan/Shot2Story) for SUM-shot model. It showcases the power and versatility of detailed and grounded video summaries. Dive into the demo and share your experiences with us! Chat-SUM-shot is on the way! Stay tuned! 📝
-
-🌟 Update (12/12/2023): We are excited to release our code for **video summarization** and **video captioning** as part of the Shot2Story project. Dive into these new features and share your experiences with us! 🎥📝🚀
-
-🌟 Update (30/11/2023): We are thrilled to announce the release of Shot2Story-20K. Check them out and let us know your thoughts. Stay tuned for more exciting updates! 💫🚀
-
-
----
-
 ## Setting Environment <a name="setting-environment"></a>
 This section provides guidelines on how to get the project up and running. Suppose the project root is 
 `$project_root/Shot2Story`, then you can prepare the project by:
 
 ### Preparing the Data
 <!-- **Structure:**   -->
-Please follow the instructions in the [DATA.md]() to download and prepare the videos and annotations. In our code, the data should be organized in `$project_root/Shot2Story/data` as below:
+Please follow the instructions in the [DATA.md](https://huggingface.co/datasets/mhan/shot2story) to download and prepare the videos and annotations. In our code, the data should be organized in `$project_root/Shot2Story/data` as below:
 
 ```plaintext
 data/
@@ -65,9 +52,31 @@ data/
 |--annotations/
 |  |--20k_train.json
 |  |--20k_val.json
-|  |--220k_test.json
+|  |--20k_test.json
 ```
 Please use the videos and annotations following their original usage instructions and license.
+
+### Step 1: Download videos
+
+Please download our cached videos from [OneDrive](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ) or [HF](https://huggingface.co/mhan/shot2story-videos). 
+
+For example, download and prepare videos with the below commands
+```bash
+git lfs install
+git pull https://huggingface.co/mhan/shot2story-videos videos
+
+cd videos
+cat release_134k_videos.tar.gz.* > release_134k_videos.tar.gz
+tar xf release_134k_videos.tar.gz
+```
+
+### Step 2: Prepare annotations
+
+All of our annotations are hosted at [HF](https://huggingface.co/datasets/mhan/shot2story). Please download files according to the tasks you are interested in. For Shot2Story-QA evaluation, please download `val_qa.json` and `test_qa.json`. For multi-shot video summarization, please download `43k_human_train.json` for training using manual annotations, `90k_gptv_train.json` for training using GPTV generated annotations, or using a combination of both annotations `134k_full_train.json`. For single-shot captioning, please download JSON files containing `_human_shot_`.
+
+### Step 3: Final check
+
+Please ensure the files are organized in the above file structure.
 
 ---
 
@@ -115,9 +124,8 @@ Stay tuned for metric calculation interface and summary generation codes.
 
 | Model*            | ASR   | B    | M    | R    | C   | Checkpoint   | 
 | ---------------- | ----- | ---- | ---- | ---- | --- | --- |
-| SUM-shot w/o ASR | cross | 9.8  | 18.4 | 24.9 | 4.7 | [ckpt]() |
-| SUM-holistic     | check | 10.9 | 18.3 | 26.2 | 6.3 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/sum_whole_best_epoch.pth) |
-| SUM-shot         | check | 11.7 | 19.7 | 26.8 | 8.6 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/sum_shot_best_epoch.pth) |
+| SUM-holistic     | check | 10.9 | 18.3 | 26.2 | 6.3 | [ckpt](https://huggingface.co/ByteDance/shot2story/resolve/main/20k-version/sum_whole_best_epoch.pth) |
+| SUM-shot         | check | 11.7 | 19.7 | 26.8 | 8.6 | [ckpt](https://huggingface.co/ByteDance/shot2story/resolve/main/20k-version/sum_shot_best_epoch.pth) |
 
 *These models are trained in an end-to-end approach. Our provided checkpoint only contains parameter that have been updated, i.e., Q-Former (including additional linear layer).
 
@@ -152,24 +160,18 @@ Results for single-shot video captioning:
 
 | Modality* | B    | M    | R    | C    | Checkpoint |
 | -------- | ---- | ---- | ---- | ---- | ---------- |
-| V        | 10.5 | 16   | 30.1 | 38.8 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/single_shot_v.pth)   |
-| V+A      | 10.7 | 16.2 | 29.6 | 37.4 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/shot_av_best_epoch.pth)   |
+| V        | 10.5 | 16   | 30.1 | 38.8 | [ckpt](https://huggingface.co/ByteDance/shot2story/resolve/main/20k-version/single_shot_v.pth)   |
+| V+A      | 10.7 | 16.2 | 29.6 | 37.4 | [ckpt](https://huggingface.co/ByteDance/shot2story/resolve/main/20k-version/shot_av_best_epoch.pth)   |
 
 
 Results for single-shot narration captioning:
 
 | Modality* | B    | M    | R    | C     | Checkpoint |
 | -------- | ---- | ---- | ---- | ----- | ---------- |
-| A        | 4.7  | 17.1 | 30.3 | 130.9 | [ckpt]()   |
-| V+A      | 18.8 | 24.8 | 39   | 168.7 | [ckpt](https://huggingface.co/ByteDance-new/shot2story/resolve/main/single_shot_audio_av.pth)   |
+| V+A      | 18.8 | 24.8 | 39   | 168.7 | [ckpt](https://huggingface.co/ByteDance/shot2story/resolve/main/20k-version/single_shot_audio_av.pth)   |
 
 *These models are trained in an end-to-end approach. V and A means visual signals and ASR text seperately.
 
-## Video-shot Retrieval
-Stay tuned!
-
-## Zero-shot video question-answering
-Stay tuned!
 
 ---
 
