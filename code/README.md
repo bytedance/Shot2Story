@@ -1,9 +1,9 @@
 # Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
 
-We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. Our 20k version of dataset includes detailed long summaries for 20k videos and shot captions for 80k video shots. Please see [DATA.md](https://huggingface.co/datasets/mhan/shot2story) for more details. 
+We are excited to release a new video-text benchmark and extendable codes for multi-shot video understanding. This release contains a 134k version of our dataset. It includes detailed long summaries (human annotated + GPTV generated) for 134k videos and shot captions (human annotated) for 188k video shots. Please see [DATA.md](https://huggingface.co/datasets/mhan/shot2story) for more details. 
 
-This repo mainly focus on our established baselines for single-shot captions, video summarization, multi-shot question-answering and zero-shot video question-answering.
+This repo mainly focuses on our established baselines for single-shot captions, video summarization, multi-shot question-answering, multi-shot video question-ansering and zero-shot video question-answering.
 
 
 <p align="center"> <br> <img src="assets/code_demo.png" alt="Dataset Glance"/> <br> </p>
