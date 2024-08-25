@@ -1,8 +1,13 @@
-We are excited to release a new video-text benchmark for multi-shot video understanding. This release contains a 134k version of our dataset. It includes detailed long summaries (human annotated + GPTV generated) for 134k videos and shot captions (human annotated) for 188k video shots. Additionally, we annotate question-answering pairs for benchmarking multi-shot video understanding.
+# Shot2Story: A New Benchmark for Comprehensive Understanding of Multi-shot Videos
 
 **Annotation files are hosted on [Huggingface](https://huggingface.co/datasets/mhan/shot2story).**
 
 **Please download the multi-shot videos from [OneDrive](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ) or [HuggingFace](https://huggingface.co/mhan/shot2story-videos).**
+
+
+![image/png](https://cdn-uploads.huggingface.co/production/uploads/641ae9911911d3be67422e6f/QdZH4AasZ9CBtSUDXvJl8.png)
+
+We are excited to release a new video-text benchmark for multi-shot video understanding. This release contains a 134k version of our dataset. It includes detailed long summaries (human annotated + GPTV generated) for 134k videos and shot captions (human annotated) for 188k video shots. Additionally, we annotate question-answering pairs for benchmarking multi-shot video understanding.
 
 We are excited to release a new video-text benchmark for multi-shot video understanding. This release contains a 134k version of our dataset. It includes detailed long summaries (human annotated + GPTV generated) for 134k videos and shot captions (human annotated) for 188k video shots.
 
