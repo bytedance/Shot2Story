@@ -59,11 +59,11 @@ Example:
 
 ## Videos Downloading <a name="videos-downloading"></a>
 
-We provide cached multi-shot videos [here](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ). It takes around 160GB of disk space and needs to extract video shots on your own.
+We provide cached multi-shot videos [OneDrive](https://1drv.ms/f/s!Ap3OKt6-X52NgXoG4-64N9WZDenS?e=oIHfkZ) and [HuggingFace](https://huggingface.co/mhan/shot2story-videos). It takes around 160GB of disk space and needs to extract video shots on your own.
 
 Or, you can download on your own:
 
-1. **Access Information:** YouTube video ID, chapter ID, and start-end timestamps from HD-VILA-100M are in [./data/annotations](https://huggingface.co/datasets/mhan/shot2story)/`134k_meta.csv`, or you can download the update videos in [./data/annotations](https://huggingface.co/datasets/mhan/shot2story)/`114k_meta.csv`.
+1. **Access Information:** YouTube video ID, chapter ID, and start-end timestamps from HD-VILA-100M are in [./data/annotations](https://huggingface.co/datasets/mhan/shot2story/tree/main)/`134k_meta.csv`, or you can download the update videos in [./data/annotations](https://huggingface.co/datasets/mhan/shot2story/tree/main)/`114k_meta.csv`.
 2. **Download Scripts:** Use our Python scripts in `./data/scripts/download_videos.py` to download videos. Ensure you have necessary permissions.
 3. **Video Preparation:** Use our code in `./data/scripts/process_videos.py` to prepare video clips and single-shot videos. As a prerequisite, please run `data/scripts/get_existing_data.py` to have all the downloaded raw videos for processing.
 
