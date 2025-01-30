@@ -16,6 +16,8 @@ We are excited to release a new video-text benchmark and extendable codes for mu
 ---
 
 ## What's new 👀 <a name="news"></a>
+🌟🚀 Our paper is accepted by ICLR 2025. See you in Singapore.
+
 🌟 Update (25/09/2024): Our online demo is back in service. If the demo fails again, please feel free to report the issue here or on Hugging Face.
 
 🌟 Update (10/06/2024): Please check the release question-answering benchmark [here](https://huggingface.co/datasets/mhan/shot2story/viewer/question-answering). It is designed to benchmark models for multi-shot understanding, w.r.t. temporal-related, holistic-understanding and audio-related aspects.
